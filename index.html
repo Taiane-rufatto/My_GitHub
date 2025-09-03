@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <title>Guia Prático sobre Git e GitHub</title>
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>Conceitos de Git e GitHub</h1>
+            <p class="subtitle">Um guia prático para iniciantes</p>
+        </div>
+    </header>
+
+    <main class="site-main">
+        <div class="container">
+            <figure class="hero">
+                <img src="assets/img/git&github.png" alt="Git e GitHub" width="300"/>
+                <figcaption>Git (controle de versão) & GitHub (plataforma de colaboração)</figcaption>
+            </figure>
+            <div class="container">
+                <section id="conceitos" class="panel">
+                    <header class="panel__head">
+                        <h2>O que é Git?</h2>
+                    </header>
+                    <p>Git é um sistema de controle de versão distribuído que registra mudanças em arquivos ao longo do
+                        tempo. Ele permite criar commits, trabalhar em branches e restaurar versões anteriores.</p>
+                    <ul class="list list--check">
+                        <li><strong>Distribuído:</strong> cada máquina tem um repositório completo.</li>
+                        <li><strong>Rápido e seguro:</strong> usa hashes para identificar commits.</li>
+                        <li><strong>Flexível:</strong> suporta diferentes fluxos de trabalho.</li>
+                    </ul>
+                </section>
+
+                <section class="panel">
+                    <header class="panel__head">
+                        <h2>O que é GitHub?</h2>
+                   
+                    <p>GitHub é uma plataforma de hospedagem de repositórios Git que adiciona recursos de colaboração
+                        como Issues, Pull Requests, Actions (CI/CD) e revisão de código.</p>
+                    <p class="note"><strong>Importante:</strong> Git é a ferramenta de versionamento; GitHub é o serviço
+                        que usa Git para colaboração.</p>
+                </section>
+
+                <section class="panel">
+                    <h2>Termos Fundamentais</h2>
+                    <dl class="deflist">
+                        <div class="deflist__row">
+                            <dt>Repositório</dt>
+                            <dd>Local onde o projeto e seu histórico de commits ficam armazenados.</dd>
+                        </div>
+                        <div class="deflist__row">
+                            <dt>Commit</dt>
+                            <dd>Um snapshot do projeto com mensagem, autor e data.</dd>
+                        </div>
+                        <div class="deflist__row">
+                            <dt>Branch</dt>
+                            <dd>Linha de desenvolvimento independente dentro do repositório.</dd>
+                        </div>
+                        <div class="deflist__row">
+                            <dt>Merge</dt>
+                            <dd>Combina mudanças de uma branch em outra.</dd>
+                        </div>
+                        <div class="deflist__row">
+                            <dt>Remote</dt>
+                            <dd>Repositório remoto, normalmente hospedado no GitHub.</dd>
+                        </div>
+                        <div class="deflist__row">
+                            <dt>Clone</dt>
+                            <dd>Cópia de um repositório remoto para sua máquina.</dd>
+                        </div>
+                        <div class="deflist__row">
+                            <dt>Fork</dt>
+                            <dd>Cópia de um repositório no GitHub para sua conta.</dd>
+                        </div>
+                        <div class="deflist__row">
+                            <dt>Pull Request</dt>
+                            <dd>Proposta de integração de alterações em um repositório.</dd>
+                        </div>
+                        <div class="deflist__row">
+                            <dt>.gitignore</dt>
+                            <dd>Arquivo que lista os itens que o Git deve ignorar.</dd>
+                        </div>
+                    </dl>
+                </section>
+
+                <section class="panel">
+                    <h2>Comandos Essenciais</h2>
+
+                    <article class="card">
+                        <h3>Inicializar e configurar</h3>
+                        <pre class="code"><code>git init
+git config user.name "Seu Nome"
+git config user.email "voce@email.com"</code></pre>
+                    </article>
+
+                    <article class="card">
+                        <h3>Salvar mudanças</h3>
+                        <pre class="code"><code>git status
+git add arquivo.txt
+git commit -m "Mensagem clara"</code></pre>
+                    </article>
+
+                    <article class="card">
+                        <h3>Trabalhar com repositórios remotos</h3>
+                        <pre class="code"><code>git remote add origin https://github.com/usuario/repositorio.git
+git push -u origin main
+git pull origin main</code></pre>
+                    </article>
+
+                    <article class="card">
+                        <h3>Branches</h3>
+                        <pre class="code"><code>git branch feature/conceitos
+git checkout feature/conceitos
+git checkout -b feature/conceitos</code></pre>
+                    </article>
+                </section>
+            </div>
+    </main>
+</body>
+
+</html>
