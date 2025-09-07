@@ -54,3 +54,70 @@ main {
 section {
     margin-bottom: 40px;
 }
+/* ===========================
+   Fluxo Básico (lista numerada)
+   =========================== */
+.panel h2 + ol {
+    counter-reset: step;
+    list-style: none;
+    margin: 16px 0 0 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+}
+
+.panel h2 + ol > li {
+    counter-increment: step;
+    position: relative;
+    padding: 14px 16px 14px 56px;
+    border: 1px solid #dcdcdc;
+    border-radius: 10px;
+    background: #ffffff;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+}
+
+/* Bolacha numerada à esquerda */
+.panel h2 + ol > li::before {
+    content: counter(step);
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: #1e90ff;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 28px;
+    text-align: center;
+    box-shadow: 0 0 0 3px rgba(30,144,255,0.15);
+}
+
+.panel h2 + ol code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    background: #0b1220;
+    color: #e6edf3;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 0.95em;
+}
+
+.panel h2 + ol > li:hover,
+.panel h2 + ol > li:focus-within {
+    border-color: #1e90ff;
+    box-shadow: 0 4px 12px rgba(30,144,255,0.12);
+}
+
+    .panel h2 + ol > li {
+        padding: 12px 12px 12px 48px;
+    }
+    .panel h2 + ol > li::before {
+        left: 12px;
+        width: 26px;
+        height: 26px;
+        line-height: 26px;
+        font-size: 0.9rem;
+    }
+}
