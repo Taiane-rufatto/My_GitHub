@@ -19,9 +19,10 @@
     <main class="site-main">
         <div class="container">
             <figure class="hero">
-                <img src="assets/img/git&github.png" alt="Git e GitHub" width="300"/>
+                <img src="assets/img/git&github.png" alt="Git e GitHub" width="300" />
                 <figcaption>Git (controle de versão) & GitHub (plataforma de colaboração)</figcaption>
             </figure>
+
             <div class="container">
                 <section id="conceitos" class="panel">
                     <header class="panel__head">
@@ -119,19 +120,89 @@ git checkout feature/conceitos
 git checkout -b feature/conceitos</code></pre>
                     </article>
                 </section>
+
                 <section class="panel">
                     <h2>Fluxo Básico de Trabalho com Git e GitHub</h2>
                     <ol>
                         <li><strong>1.</strong> Criar um repositório local com <code>git init</code>.</li>
                         <li><strong>2.</strong> Fazer alterações nos arquivos do projeto.</li>
-                        <li><strong>3.</strong> Salvar as mudanças com <code>git add</code> e <code>git commit</code>.</li>
+                        <li><strong>3.</strong> Salvar as mudanças com <code>git add</code> e <code>git commit</code>.
+                        </li>
                         <li><strong>4.</strong> Conectar ao GitHub com <code>git remote add origin</code>.</li>
                         <li><strong>5.</strong> Enviar para o repositório remoto com <code>git push</code>.</li>
-                        <li><strong>6.</strong> Colaboradores podem baixar as atualizações com <code>git pull</code>.</li>
-                        <li><strong>7.</strong> Para novas funcionalidades, criar uma branch, trabalhar nela e depois integrar via <em>merge</em> ou <em>pull request</em>.</li>
+                        <li><strong>6.</strong> Colaboradores podem baixar as atualizações com <code>git pull</code>.
+                        </li>
+                        <li><strong>7.</strong> Para novas funcionalidades, criar uma branch, trabalhar nela e depois
+                            integrar via <em>merge</em> ou <em>pull request</em>.</li>
+                        <li><strong>8.</strong> Criado Pull Request das alterações da <em>branch 2</em>.</li>
+                        <li><strong>9.</strong> Criado Pull Request da <em>branch 3</em>.</li>
+                        <li><strong>10.</strong> Aceito Pull Request da <em>branch 2</em>.</li>
+                        <li><strong>11.</strong> Fazer pull da <em>develop</em> para a <em>branch 3</em>.</li>
                     </ol>
                 </section>
+                <section id="resolvendo-conflitos" class="panel">
+                    <header class="panel__head">
+                        <h2>Resolvendo Conflitos (branch-3 após merge da branch-2 na develop)</h2>
+                    </header>
+                    <p>Após aceitar o Pull Request da <strong>branch-2</strong> na <strong>develop</strong>, foi
+                        atualizado a <strong>branch-3</strong> e o Git sinalizou conflitos. Abaixo está o que foi feito,
+                        com os comandos essenciais e exemplos dos marcadores de conflito:</p>
+                    <article class="card">
+                        <h3>1) Trazer a <em>develop</em> para a <em>branch-3</em></h3>
+                        <pre class="code"><code>git checkout branch-3
+git pull origin branch-3    # garantir que a branch-3 local está atualizada
+git fetch origin            # buscar refs atualizadas no remoto
+git merge origin/develop    # integrar mudanças vindas da develop (inclui merge da branch-2)</code></pre>
+                        <p>Neste ponto, o Git apontou arquivos em conflito.</p>
+                    </article>
+
+                    <article class="card">
+                        <h3>2) Identificar, abrir e editar os arquivos com conflito</h3>
+                        <pre
+                            class="code"><code>git status                  # lista os arquivos marcados como "both modified"</code></pre>
+                        <p>Dentro dos arquivos, os marcadores de conflito aparecem assim:</p>
+                        <pre class="code"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD                 # conteúdo atual da branch-3
+... seu código ...
+=======
+... código vindo da develop (inclui merge da branch-2) ...
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/develop</code></pre>
+                        <p>Foi escolhido qual manter e salvo as alterações</p>
+                        <figure>
+                            <a href="assets/img/conflito-branch-3.png" target="_blank" rel="noopener">
+                                <img src="assets/img/conflito-branch-3.png" alt="Exemplo de conflito na branch-3"
+                                    width="320">
+                            </a>
+                            <figcaption>Conflito visível ao integrar <em>develop</em> na <em>branch-3</em>.</figcaption>
+                        </figure>
+                    </article>
+
+                    <article class="card">
+                        <h3>3) Marcado como resolvido e criar o commit de merge</h3>
+                        <pre class="code"><code># adicionar apenas os arquivos resolvidos
+git add caminho/do/arquivo1.ext
+git add caminho/do/arquivo2.ext
+
+# registrar a resolução
+git commit -m "mensagem"</code></pre>
+                        <figure>
+                            <a href="assets/img/commit-merge-branch-3.png" target="_blank" rel="noopener">
+                                <img src="assets/img/commit-merge-branch-3.png" alt="Commit de resolução de conflito"
+                                    width="320">
+                            </a>
+                            <figcaption>Commit de resolução de conflitos criado.</figcaption>
+                        </figure>
+                    </article>
+
+                    <article class="card">
+                        <h3>4) Enviar e finalizar o Pull Request</h3>
+                        <pre
+                            class="code"><code>git push origin branch-3    # atualiza o PR com os conflitos resolvidos</code></pre>
+                        <p>No GitHub, foi atualizado o Pull Request da <strong>branch-3</strong> e concluído o merge sem
+                            conflitos.</p>
+                    </article>
+                </section>
             </div>
+        </div>
     </main>
 </body>
 
